@@ -9,7 +9,7 @@ public class App {
         String etunimi = "";
         String tarkistus = "";
         String verkkotunnus = "";
-        do{
+        
         System.out.println("etunimi? ");
         etunimi = in.nextLine();
 
@@ -21,13 +21,15 @@ public class App {
 
         System.out.println("Annoit seuraavat tiedot: " + etunimi + " " + sukunimi + verkkotunnus + " " + " Jos tiedot ovat Oikein kirjoita O, Väärin kirjoita V.");
         tarkistus = in.nextLine();
-    } while (!tarkistus.equalsIgnoreCase("O"));
+    if (!tarkistus.equalsIgnoreCase("O")){
+        System.out.println("Error: <Please Try Again>");
+    }
 
+}
 }
 // public static void GenerateEmail(String email){
 //      System.out.println("Email is " + etunimi + "." + sukunimi + "@" + email)
 // }
-}
 
 
 // GenerateEmail-metodi
