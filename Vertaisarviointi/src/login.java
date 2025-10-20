@@ -18,13 +18,25 @@ public class login {
         System.out.println("Yrityksen verkkotunnus? ");
             verkkotunnus = (in.nextLine());
 
-        System.out.println("Annoit seuraavat tiedot: " + etunimi + " " + sukunimi + " " + verkkotunnus + " " + " Jos tiedot ovat Oikein kirjoita O, Väärin kirjoita V.");
-            tarkistus = in.nextLine();
+    if (etunimi.isEmpty()) {
+        System.out.println( "Virhe. Aloita operaatio alusta.");
+        in.close();
+        return;
+    }
+    if (sukunimi.isEmpty()) {
+        System.out.println( "Virhe. Aloita operaatio alusta.");
+        in.close();
+        return;
+    }
+    if (verkkotunnus.isEmpty()) {
+        System.out.println( "Virhe. Aloita operaatio alusta.");
+        in.close();
+        return;
+    }
 
-    if (!tarkistus.equalsIgnoreCase("O")){
-        System.out.println("Error: <Please Try Again>");
-        }
+
     GenerateEmail(etunimi, sukunimi, verkkotunnus);
+    GenerateUsername(etunimi, sukunimi);
     }
 public static void GenerateEmail(String etunimi, String sukunimi, String verkkotunnus)
 {
@@ -32,17 +44,14 @@ public static void GenerateEmail(String etunimi, String sukunimi, String verkkot
     String sposti = (etunimi + "." + sukunimi + "@" + verkkotunnus).toLowerCase();
     System.out.println(sposti);
 }
+public static void GenerateUsername(String etunimi, String sukunimi)
+{
+    String etun = etunimi.substring(0, 4);
+    String suku = sukunimi.substring(sukunimi.length() - 4);
+    String tunnus = (etun + suku).toLowerCase();
+    System.out.println(tunnus);
 }
-
-// GenerateEmail-metodi
-//     Metodin kutsuminen: 1 piste 
-//     Metodin parametrit: 1 piste 
-//     Sähköpostiosoitteen muodostaminen: 1 piste 
-//     Merkkien muuttaminen pieniksi kirjaimiksi: 1 piste 
-
-// GenerateUsername-metodi
-//     Etunimestä 4 ensimmäistä merkkiä: 2 pistettä 
-//     Sukunimestä 4 viimeistä merkkiä: 2 pistettä 
+}
 
 // Ohjelmointityyli 
 //     Koodissa on 2 tai useampia kommentteja ja kommentit ovat merkityksellisiä: 1 piste 
