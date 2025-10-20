@@ -18,7 +18,7 @@ public class login {
         System.out.println("Yrityksen verkkotunnus? ");
             verkkotunnus = (in.nextLine());
 
-        System.out.println("Annoit seuraavat tiedot: " + etunimi + " " + sukunimi + verkkotunnus + " " + " Jos tiedot ovat Oikein kirjoita O, Väärin kirjoita V.");
+        System.out.println("Annoit seuraavat tiedot: " + etunimi + " " + sukunimi + " " + verkkotunnus + " " + " Jos tiedot ovat Oikein kirjoita O, Väärin kirjoita V.");
             tarkistus = in.nextLine();
 
     if (!tarkistus.equalsIgnoreCase("O")){
@@ -28,7 +28,9 @@ public class login {
     }
 public static void GenerateEmail(String etunimi, String sukunimi, String verkkotunnus)
 {
-    System.out.println("Email is " + etunimi + "." + sukunimi + "@" + verkkotunnus);
+
+    String sposti = (etunimi + "." + sukunimi + "@" + verkkotunnus).toLowerCase();
+    System.out.println(sposti);
 }
 }
 
